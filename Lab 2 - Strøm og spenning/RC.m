@@ -11,7 +11,7 @@ y = log10(U_ut./U_inn);
 % plot(x, y)
 % plot(x, y, 'o')
 % 
-% fit = fitlm(x(2:5), y(2:5))
+fit = fitlm(x(2:5), y(2:5))
 % plot(fit)
 % hold off
 
