@@ -12,7 +12,10 @@ dm = (2*dtau/mean_tau)
 tau_ost = [41 46 39 46 42 43 41 44 42 44 43 43 43 46 42 43 44 39 42 46 35 50 43 43 43 48 42 44 43 41 43 41 44 44 42 45 41 43 42 43 38 38 36 44 41 46 47 42 40 46 44 42 42 44 44 43 44 43 42 43].*0.01;
 
 for i = 1:1:20
-    disp(tau_ost(i), tau_ost(20+i), tau_ost(40+i))
+    fprintf('%f   ', tau_ost(i));
+    fprintf('%f   ', tau_ost(20+i));
+    fprintf('%f   ', tau_ost(40+i));
+    disp(' ')
 end
 
 n = length(tau_ost)
@@ -22,7 +25,8 @@ standard_deviation = std(tau_ost)
 SE = standard_deviation/sqrt(n)
 
 dtau_ost = 2*SE;
-dm = (2*dtau_ost/mean_tau_ost)
 
-(mean_tau_ost/mean_tau)^2-1
 m0 = 2
+m1 = ((mean_tau_ost/mean_tau)^2-1)*m0
+
+dm = (2*dtau_ost/mean_tau_ost)*(m0 + m1)
