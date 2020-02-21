@@ -1,0 +1,13 @@
+Last ned endringer som har blitt gjort
+	git pull
+
+Sjekk om du har endringer på din PC som skal lastes opp
+	git status
+
+Hvis du har endringer som skal lastes opp:
+Last først ned med 
+	git pull
+Gjøre klar til å laste opp endringer
+	git add -A
+	git commit -m "En passende tittel for opplastingen"
+	git push

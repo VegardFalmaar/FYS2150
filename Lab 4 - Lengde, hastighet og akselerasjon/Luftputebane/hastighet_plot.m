@@ -12,3 +12,6 @@ hold on
 xlabel('t [s]')
 ylabel('v [m/s]')
 hold off
+
+fm = f - dfrek
+v = (1 - f./fm).*c
