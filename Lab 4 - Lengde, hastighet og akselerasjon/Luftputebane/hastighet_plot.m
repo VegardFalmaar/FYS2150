@@ -13,5 +13,9 @@ xlabel('t [s]')
 ylabel('v [m/s]')
 hold off
 
+% Oppløsning fart
 fm = f - dfrek
 v = (1 - f./fm).*c
+
+% Usikkerhet fart
+dv = v/2
