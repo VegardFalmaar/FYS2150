@@ -77,27 +77,31 @@ Vi har i dette eksperimentet sett på egenskapene til multimetre som kan brukes 
 
 \section{Teori}
 
-Ved å observere lyset som når oss fra fjerne stjerner kan vi finne ut hvilken fart stjernen har i
- forhold til oss her på jorda. På grunn av Doppler-Effekten vil lys sendt ut fra en kilde som
- beveger seg bort fra oss bli rødforskjøvet og lys fra en kilde som beveger seg mot oss vil bli
- bl
+Ohms lov, som gjelder for motstandene vi her bruker??, sier at spenningsfallet $U$ over en komponent er lik produktet av strømmen $I$ gjennom komponenten og resistansen $R$ til komponenten:
+\begin{equation}
+  \label{eq:ohms_lov}
+  U = R I
+\end{equation}
 
 
 
 \section{Eksperimentelt}
+
+Sidene multimeterne Fluke 45 og Fluke 75 er brukt gjennom hele forsøket vil jeg begynne med å angi måleusikkerheten til disse. BLABLABLA
+
 \subsection{Multimeter måler multimeter}
-Her har vi brukt to multimetre, Fluke 45 og Fluke 75, og latt dem måle på hverandre. På den måten har vi målt motstanden til et hvert av multimetrene i Voltmeter- og Amperemeterfunksjon, strømmen gjennom dem i Voltmeter- og Ohmmeterfunksjon og spenningen over dem i Amperemeter- og Ohmmeterfunksjon. Kretstegninger er vist i figur REF.
+Her har vi brukt de to multimeterne, Fluke 45 og Fluke 75, og latt dem måle på hverandre. På den måten har vi målt motstanden til hvert av multimetrene i Voltmeter- og Amperemeterfunksjon, strømmen gjennom dem i Voltmeter- og Ohmmeterfunksjon og spenningen over dem i Amperemeter- og Ohmmeterfunksjon. Kretstegninger er vist i figur REF.
 
 \subsection{Motstand, likestrøm og likespenningsmålinger med multimeter}
-Her skal vi måle resistansen til to motstander, først direkte med Fluke 45 i Ohmmeterfunksjon og siden ved å bruke Fluke 45 BEGGE til å måle strøm og spenning i en krets. Dersom vi kjenner strøm og spenning i kretsen kan vi bruke Ohms lov REF til å beregne motstanden i kretsen. Målepunktene vi bruker for spenning og strøm er vist i kretstegningen i figur REF. Siden vi bare har to multimetre, må vi koble om for å måle alle tre størrelser $V_{\text{inn}}$, $V_{\text{ut}}$ og $I$.
+Her skal vi måle resistansen til to motstander, først direkte med Fluke 45 i Ohmmeterfunksjon og siden ved å bruke begge til å måle strøm og spenning i en krets. Dersom vi kjenner strøm og spenning i kretsen kan vi bruke Ohms lov \ref{eq:ohms_lov} til å beregne motstanden i kretsen. Målepunktene vi bruker for spenning og strøm er vist i kretstegningen i figur REF. Siden vi bare har to multimetre, må vi koble om for å måle alle tre størrelser $V_{\text{inn}}$, $V_{\text{ut}}$ og $I$.
 
-Usikkerheten i måleinstrumentene
-
-Ohms lov løst for motstand $R$ kan skrives på formen $R = U/I = U I^{-1}$. Usikkerheten i R er da gitt ved
+Ohms lov (\ref{eq:ohms_lov} løst for motstand $R$ kan skrives på formen $R = U/I = U I^{-1}$. Usikkerheten i R er da gitt ved
 \begin{align*}
   \Delta R &= R \sqrt{\left( \frac{\Delta U}{U} \right) ^2 + \left( -1 \frac{\Delta I}{I} \right) ^2} \\
-  &= R \sqrt{\left( \frac{\Delta U}{U} \right) ^2 + \left( \frac{\Delta I}{I} \right) ^2} \numberthis \label{eq:usikkerhet_R}
+  &= R \sqrt{\left( \frac{\Delta U}{U} \right) ^2 + \left( \frac{\Delta I}{I} \right) ^2}, \numberthis \label{eq:usikkerhet_R}
 \end{align*}
+der $R$ er den beregnede resistansen og $\Delta U$ og $\Delta I$ er måleusikkerhetene i spenning $U$ og strøm $I$.
+
 
 \subsection{Vekselspenninger med frekvensgenerator, oscilloskop og multimeter}
 De to signalene vi brukte i analysen var et sinus- og et firkantsignal. Bilder av signalene med innstillingene som ble brukt finnes i figur REF.
@@ -110,6 +114,22 @@ De to signalene vi brukte i analysen var et sinus- og et firkantsignal. Bilder a
 \end{figure}
 
 
+\subsection{Krets med frekvensavhengig respons}
+Vi har koblet opp en RC-krets som vist i figur REF. Denne vil fungere som et lavpassfilter som filtrerer bort signaler med høye frekvenser mens den lar signaler med lavere frekvenser passere CITE?. For høye frekvenser (tilnærmingen blir bedre og bedre for høyere frekvenser) vil følgende relasjon gjelde mellom forholdet mellom spenning ut og spenning inn og XXXfrekvens:
+\begin{equation}
+  \log \left( \frac{V_{\text{ut}}}{V_{\text{inn}}} \right) = \log (\omega) + \log (\omega_0) \label{eq:lavpass}
+\end{equation}
+\begin{equation}
+  \omega_0 = \frac{1}{RC} \label{eq:omega_0}
+\end{equation}
+Her er $\omega = 2 \pi f$, der $f$ er signalfrekvensen, mens $V_{\text{ut}}$ og $V_{\text{inn}}$ er størrelsene som er markert på figur REF. $C$ er kapasitansen til kondensatoren og $R$ er resistansen til motstanden. Likning \ref{eq:omega_0} gir at kapasitansen er gitt ved $C = \frac{1}{R \omega_0}$ som kan skrives $C = R^{-1} \omega_0^{-1}$ som gir at usikkerheten i kapasitansen kan uttrykkes
+\begin{align*}
+  \Delta C &= C \sqrt{\left( -1 \frac{\Delta R}{R} \right) ^2 + \left( -1 \frac{\Delta \omega_0}{\omega_0} \right) ^2} \\
+  &= C \sqrt{\left( \frac{\Delta R}{R} \right) ^2 + \left( \frac{\Delta \omega_0}{\omega_0} \right) ^2}, \numberthis \label{eq:usikkerhet_C}
+\end{align*}
+hvor $C$ er den beregnede kapasitansen og $\Delta R$ og $\Delta \omega_0$ er måleusikkerhetene i resistans $R$ og konstanten $\omega_0$.
+
+
 \section{Resultater}
 
 \subsection{Multimeter måler multimeter}
@@ -120,7 +140,7 @@ Den første delen av eksperimentet, å bruke hvert av multimetrene til å måle 
 \caption{Tabell som viser resultatene av å bruke de to multimeterne til å måle på hverandre. Målingene merket med * var oppgitt med én desimal mer på måleinstrumentet enn det som er oppgitt her, men det siste sifferet er sløyfet fori det var umulig å avlese da verdien svingte hele tiden.}
 
 \begin{adjustbox}{width=\linewidth}
-\begin{tabular}{||c | c | c | c||}
+\begin{tabular}{||c || c | c | c||}
 \hline
 Forsøk \# & Spenning, [mV] & Strøm, [mA] & Motstand  \\ \hline\hline
 1 &            & F45: 0.501 & F75: 10.9 $\Omega$    \\ \hline
@@ -161,7 +181,7 @@ Ved indirekte måling av motstanden ved Ohms lov fikk vi først verdiene for str
 \caption{Tabell som viser resultatene av å bruke de to multimeterne til å måle strøm og spenning gjennom kretsene i figur REF. Målingen merket med * er avlest for tidlig i forhold til den tiden som multimeter bruker på å stabilisere seg når man måler strøm med største presisjon, og er ikke egnet til å brukes i videre beregninger.}
 
 \begin{adjustbox}{width=\linewidth}
-\begin{tabular}{||c | c | c | c||}
+\begin{tabular}{||c || c | c | c||}
 \hline
 Komponent & Måling & Spenning, [V] & Strøm, [mA]   \\ \hline\hline
 R1 & Spenning inn     & 1.474 $\pm$ 0.007 & 68.93 $\pm$ 0.04*   \\ \hline
@@ -179,7 +199,7 @@ Resultatene fra målingene på det genererte signalet finnes i figur REF. Øvrig
 \caption{Tabell som viser resultatene av å bruke oscilloskop og multimeter (Fluke 45) til å måle på sinussignal og firkantsignal laget av en signalgenerator. Øvrige innstillinger for signalene finnes i REF.}
 
 \begin{adjustbox}{width=\linewidth}
-\begin{tabular}{||c | c | c | c||}
+\begin{tabular}{||c || c | c | c||}
 \hline
 Apparat     & Sinussignal, & Sinussignal med forskyvning 1V, & Firkantsignal, \\
             & AC RMS      & likestrømsgjennomsnitt          & AC RMS        \\ \hline\hline
