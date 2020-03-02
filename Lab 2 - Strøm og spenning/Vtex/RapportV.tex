@@ -100,7 +100,7 @@ Her har vi brukt de to multimeterne, Fluke 45 og Fluke 75, og latt dem måle på
 Deretter skal vi studere kretstegningene i figur \ref{fig:krets_ulike_funksjoner_multimeter} som viser et Amperemeter, et Voltmeter og et Ohmmeter. Oppgaven er å avgjøre hvilken kretstegning som svarer til hvilken funksjon.
 \begin{figure}
   \includegraphics[width=\linewidth]{krets_ulike_funksjoner_multimeter.jpeg}
-  \caption{Kretstegning for de tre ulike funksjonene til et multimeter (Amperemeter, Voltmeter og Ohmmeter). Oppgaven er å avgjøre hvilken kretstegning som svarer til hvilken funksjon.}
+  \caption{Kretstegning for de tre ulike funksjonene til et multimeter (Amperemeter, Voltmeter og Ohmmeter). Oppgaven er å avgjøre hvilken kretstegning som svarer til hvilken funksjon. Motstandene $R$ med pil gjennom har variabel resistans, mens $R_0$ er uendret.}
   \label{fig:krets_ulike_funksjoner_multimeter}
 \end{figure}
 
@@ -133,7 +133,7 @@ Her skal vi lage etter tur to varierende spenningssignaler med en signalgenerato
 
 
 \subsection{Krets med frekvensavhengig respons}
-Vi har koblet opp en RC-krets som vist i figur \ref{fig:krets_RC}. Denne vil fungere som et lavpassfilter som filtrerer bort signaler med høye frekvenser mens den lar signaler med lavere frekvenser passere CITE?. For høye frekvenser (tilnærmingen blir bedre og bedre for høyere frekvenser) vil følgende relasjon gjelde mellom forholdet mellom spenning ut og spenning inn og XXXfrekvens:
+Vi har koblet opp en RC-krets som vist i figur \ref{fig:krets_RC}. Denne vil fungere som et lavpassfilter som filtrerer bort signaler med høye frekvenser mens den lar signaler med lavere frekvenser passere CITE?. For høye frekvenser (tilnærmingen blir bedre og bedre for høyere frekvenser) vil følgende relasjon gjelde mellom forholdet mellom spenning ut og spenning inn og frekvens:
 \begin{equation}
   \log \left( \frac{V_{\text{ut}}}{V_{\text{inn}}} \right) = \log (\omega) + \log (\omega_0) \label{eq:lavpass}
 \end{equation}
@@ -168,14 +168,14 @@ Den første delen av eksperimentet, å bruke hvert av multimetrene til å måle 
 
 \begin{table}[p]
 \label{table:multimetre}
-\caption{Tabell som viser resultatene av å bruke de to multimeterne til å måle på hverandre. Målingene merket med * var oppgitt med én desimal mer på måleinstrumentet enn det som er oppgitt her, men det siste sifferet er sløyfet fordi det var umulig å avlese da verdien svingte hele tiden.}
+\caption{Tabell som viser resultatene av å bruke de to multimeterne til å måle på hverandre. Målingene merket med * var oppgitt med én desimal mer på måleinstrumentet enn det som er oppgitt her, men det siste sifferet er sløyfet fordi det var umulig å avlese da verdien svingte hele tiden. OL står for overload og viser at størrelsen vi prøver å måle er for stor til å vises med denne oppløsningen.}
 
 \begin{adjustbox}{width=\linewidth}
 \begin{tabular}{||c || c | c | c||}
 \hline
 Forsøk \# & Spenning, [mV] & Strøm, [mA] & Motstand  \\ \hline\hline
 1 &            & F45: 0.501 & F75: 10.9 $\Omega$    \\ \hline
-2 &            & F75: 0.81  & F45: 5.94             \\ \hline
+2 &            & F75: 0.81  & F45: 5.94 $\Omega$    \\ \hline
 3 & F45: 0.01  & F75: 0.00  &                       \\ \hline
 4 & F75: 0.0   & F45: 0.000 &                       \\ \hline
 5 & F45: 722.4 &            & F75: 10.03 M$\Omega$  \\ \hline
@@ -235,7 +235,7 @@ Resultatene fra målingene på det genererte signalet finnes i tabell \ref{table
 \hline
 Apparat     & Sinussignal, & Sinussignal med forskyvning 1V, & Firkantsignal, \\
             & AC RMS      & likestrømsgjennomsnitt          & AC RMS        \\ \hline\hline
-Oscilloskop & 707.1 mV    & 996.7 mV                        & 1.002 V       \\ \hline
+Oscilloskop & 707.1 mV $\pm 20 \mu$V  & 996.7 mV            & 1.002 V $\pm 50 \mu$V \\ \hline
 Multimeter  & 704.75 mV   & 996.13 mV                       & 996.75 mV     \\ \hline
 Analytisk   & 707.1 mV    & 1 V                             & 1V            \\ \hline
 \end{tabular}
@@ -254,20 +254,48 @@ Ved lineær regresjon fant jeg at verdien for $log_{10}(\omega_0)$ var 2.93 med 
 
 \section{Diskusjon}
 
-Når jeg analyserte fluksdataen med minste kvadraters metode bruke jeg 30 testverdier for hver av
- de ukjente parametrene $F_{\text{min}}$, $\sigma$ og $\lambda_{\text{center}}$. Ved å øke til 40 testverdier
- innenfor det samme intervallet forventet jeg å få mer nøyaktige svar. Det viste seg imidlertid
- at dette bare førte til en endring på mellom 0.00003\% og 0.00013\% av $\lambda_{\text{center}}$ som er
- den parameteren vi bryr oss om. Jeg konkluderer derfor med at 30 testverdier gir så godt som så
- presise svar vi kan finne, og jeg er komfortabel med å bruke 30 testverdier videre. Som nevnt i
- metode-delen oppdaget jeg etter implementering av algoritmen at den øvre grensen for $\sigma$
- trygt kunne vært satt en del lavere enn den verdien jeg brukte. Dette ville antakeligvis gitt
- noe mer nøyaktige resultater.
+\subsection{Multimeter måler multimeter}
 
-Ved å se på  vi tydelige periodiske svingninger i hastigheten til
- stjernen. Det betyr at stjernen beveger seg i bane og har en komponent av banehastigheten som er
- parallell med vår siktlinje. For at stjernen skal gå i bane, må den påvirkes av en
- gravita
+I figur \ref{fig:krets_ulike_funksjoner_multimeter} viser den første kretsen et enkelt Voltmeter. Kretsen er koblet i parallell og vi ønsker å bestemme spenningsfallet $V_0$ mellom Inn og COM. Strømmen sendes gjennom kretsen og ved å måle spenningsfallet $V$ over $R_0$ kan man bestemme $V_0$:
+\begin{align*}
+  I = \frac{V_0}{R_0 + R} = \frac{V}{R_0}
+  V_0 = V \frac{R_0 + R}{R_0}
+\end{align*}
+Følsomheten for $V$ er gitt, men ved å øke verdien for $R$ kan vi måle større og større spenninger.
+
+Den andre kretsen i figuren viser et enkelt Amperemeter. Vi kan velge en liten $R$, slik at spenningsfallet over apparatet blir lite, og når vi kjenner resistansen til begge motstandene kan vi finne strømmen ved:
+\begin{align*}
+  I = \frac{V}{R} + \frac{V}{R_0}
+\end{align*}
+Ved å endre R kan man endre følsomheten til apparatet og tilpasse det ønskede måleområder.
+
+Den tredje kretsen i figuren svarer til et Ohmmeter. Her settes det på en spenning, og resten av kretsen fungerer som et kombinert Voltmeter og Amperemeter. På den måten finner vi strømmen gjennom kretsen samt spenningsfallet over den ukjente motstanden hvilket lar oss bestemme resistansen ved hjelp av Ohms lov.
+
+Av tabell \ref{table:multimetre} kan man lese av typiske motstander for de forskjellige kretsene. Vi ser at motstanden gjennom multimeterne i Amperemeterfunksjon er ca 6 $\omega$ og 11 $\omega$. Vi ønsker at motstanden gjennom et Amperemeter skal være så liten som mulig for å unngå et spenningstap over måleinstrumentet. Siden resistansene ikke er null, kan apparatene ha merkbare påvirkninger på kretsen de måler på dersom resten av motstandene i kretsen ikke er store i forhold til motstanden til måleapparatet. Det virker som at Fluke 75 har mindre resistans enn Fluke 45, men Fluke 45 (som er et lab-multimeter) har høyere oppløsning.
+
+Når vi lar et Amperemeter og et Voltmeter måle på hverandre, blir begge målingene (tilnærmet) null. Det er fordi det da ikke er noen spenningskilde i kretsen. De eneste tilfellene hvor det går strøm i kretsen er når det ene av måleapparatene er et Ohmmeter. Et Ohmmeter setter selv på en spenning på kretsen, det må det gjøre for å kunne bestemme motstanden vi prøver å måle. Amperemetre og Voltmetre kobles på i kretser der vi allerede har en ekstern spenningskilde som får det til å gå strøm i kretsen.
+
+Av målinger 5 og 6 ser vi at motstanden til multimeterne i Voltmeter-funksjon er 10-11 M$\Omega$. Vi ønsker at motstanden gjennom et voltmeter skal være så stor som mulig, slik at ingen strøm går gjennom det når vi kobler det i parallell med kretsen vi ønsker å måle på. Her er motstanden til Fluke 75 størst, som i utgangspunktet er det vi ønsker. Vi må likevel huske på at det ikke er teoretisk mulig å lage et Amperemeter med null motstand eller et Voltmeter med uendelig motstand. Selv om dette er det vi ønsker, må vi gjøre en avveiing mellom hvor mye apparatene påvirker kretsen og hvor følsomme apparatene skal være.
+
+Det er katastrofalt dersom man kobler et multimeter i Amperemeterfunksjon direkte på en spenningskilde fordi motstanden i Amperemeteret er veldig liten. Strømmen gjennom apparatet blir derfor stor, og effekten $P = U I$ blir stor, noe som kan skade komponentene, og kanskje også kortslutte kretsen.
+
+
+\subsection{Motstand, likestrøm og likespenningsmålinger med multimeter}
+
+Fra resultatene ser vi at vi fikk betydelig lavere usikkerhet ved å måle resistansen direkte, enn det vi gjorde ved å måle strøm og spenning for så å anvende Ohms lov. Dette er fornuftig ettersom vi ved den indirekte metoden gjør flere målinger, som hver har usikkerheter som siden kombineres. Vi ser at verdiene for R2 såvidt overlapper dersom vi tar hensyn til usikkerhetene, mens de to verdiene for R1 ikke overlapper i det hele tatt. Det er grunn til å at den indirekte målingen av R1 blir uriktig fordi resistansen i Amperemeteret ikke er neglisjerbar i forhold til resistansen i motstanden. Dette ser vi tydelig av tabell \ref{table:motstander}, der inn-spenningen er mye større enn spenningsfallet over R1. Dette kan forklares ved at vi også har et betydelig spenningsfall over Amperemeteret, og vi ser at de flere måleapparatene tydelig påvirker kretsen.
+
+
+\subsection{Vekselspenninger med frekvensgenerator, oscilloskop og multimeter}
+
+Det virker fra tabell \ref{table:AC_RMS} som at alle målinger stemmer godt overens med de teoretiske resultatene (gitt at signalene som blir generert også er riktige). Målingene fra oscilloskopet er nærmere det teoretiske i alle målinger, dette apparatet er nok det mest nøyaktige. For å måle forskyvningen kan vi bruke et Voltmeter eller funksjonen for likestrømsgjennomsnitt i oscilloskopet.
+
+
+\subsection{Krets med frekvensavhengig respons}
+
+Det er tydelig av figur \ref{fig:LavpassRC} at en logaritmisk fordeling på aksene er fornuftig for å studere dataene. For høye frekvenser er en lineær modell en svært god tilpasning, noe som viser seg i den lave standardfeilen i lineærtilpasningen og den lave usikkerheten vi til slutt får for kapasitansen.
+
+Vi ser for øvrig tydelig at signaler med høy frekvens blir filtrert bort. Forholdet $V_{\text{ut}}/V_{\text{inn}}$ forteller oss hva styrken er på signalene som kommer ut av kretsen i forhold til styrken på signalet idet det kommer inn. Av figur \ref{fig:LavpassRC} ser vi at for lave frekvenser er dette forholdet ca. 1 ($\log (V_{\text{ut}}/V_{\text{inn}}) \approx 0$ gir $V_{\text{ut}}/V_{\text{inn}} \approx 1$) som betyr at signalstyrken blir bevart. For høye frekvenser derimot, blir signalstyrken mer og mer redusert (det viser seg i at forholdet blir mindre og mindre). Signaler med lav frekvens bevares, mens signaler med høy frekvens blir filtrert bort. 
+
 
 
 \section{Konklusjon}
