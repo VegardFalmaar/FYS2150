@@ -90,10 +90,28 @@ Ohms lov, som gjelder for motstandene vi her bruker??, sier at spenningsfallet $
 Sidene multimeterne Fluke 45 og Fluke 75 er brukt gjennom hele forsøket vil jeg begynne med å angi måleusikkerheten til disse. BLABLABLA
 
 \subsection{Multimeter måler multimeter}
-Her har vi brukt de to multimeterne, Fluke 45 og Fluke 75, og latt dem måle på hverandre. På den måten har vi målt motstanden til hvert av multimetrene i Voltmeter- og Amperemeterfunksjon, strømmen gjennom dem i Voltmeter- og Ohmmeterfunksjon og spenningen over dem i Amperemeter- og Ohmmeterfunksjon. Kretstegninger er vist i figur REF.
+Her har vi brukt de to multimeterne, Fluke 45 og Fluke 75, og latt dem måle på hverandre. På den måten har vi målt motstanden til hvert av multimetrene i Voltmeter- og Amperemeterfunksjon, strømmen gjennom dem i Voltmeter- og Ohmmeterfunksjon og spenningen over dem i Amperemeter- og Ohmmeterfunksjon. Kretstegninger er vist i figur \ref{fig:krets_multi_maaler_multi}.
+\begin{figure}
+  \includegraphics[width=\linewidth]{krets_multi_maaler_multi.jpg}
+  \caption{Kretstegninger som viser hvordan vi har koblet i de forskjellige målingene der multimeterne måler på hverandre. F45 og F75 viser til henholdsvis Fluke 45 og Fluke 75.}
+  \label{fig:krets_multi_maaler_multi}
+\end{figure}
+
+Deretter skal vi studere kretstegningene i figur \ref{fig:krets_ulike_funksjoner_multimeter} som viser et Amperemeter, et Voltmeter og et Ohmmeter. Oppgaven er å avgjøre hvilken kretstegning som svarer til hvilken funksjon.
+\begin{figure}
+  \includegraphics[width=\linewidth]{krets_ulike_funksjoner_multimeter.jpeg}
+  \caption{Kretstegning for de tre ulike funksjonene til et multimeter (Amperemeter, Voltmeter og Ohmmeter). Oppgaven er å avgjøre hvilken kretstegning som svarer til hvilken funksjon.}
+  \label{fig:krets_ulike_funksjoner_multimeter}
+\end{figure}
+
 
 \subsection{Motstand, likestrøm og likespenningsmålinger med multimeter}
-Her skal vi måle resistansen til to motstander, først direkte med Fluke 45 i Ohmmeterfunksjon og siden ved å bruke begge til å måle strøm og spenning i en krets. Dersom vi kjenner strøm og spenning i kretsen kan vi bruke Ohms lov \ref{eq:ohms_lov} til å beregne motstanden i kretsen. Målepunktene vi bruker for spenning og strøm er vist i kretstegningen i figur REF. Siden vi bare har to multimetre, må vi koble om for å måle alle tre størrelser $V_{\text{inn}}$, $V_{\text{ut}}$ og $I$.
+Her skal vi måle resistansen til to motstander, først direkte med Fluke 45 i Ohmmeterfunksjon og siden ved å bruke begge multimeterne til å måle strøm og spenning i en krets. Dersom vi kjenner strøm og spenning i kretsen kan vi bruke Ohms lov \ref{eq:ohms_lov} til å beregne motstanden i kretsen. Målepunktene vi bruker for spenning og strøm er vist i kretstegningen i figur \ref{fig:krets_motstander}. Siden vi bare har to multimetre, må vi koble om for å måle alle tre størrelser $V_{\text{inn}}$, $V_{\text{ut}}$ og $I$.
+\begin{figure}
+  \includegraphics[width=\linewidth]{krets_motstander.jpg}
+  \caption{Kretstegning som viser hvordan vi måler strøm og spenning når vi skal bestemme motstandene R1 og R2 ved hjelp av Ohms lov. Vi brukte Fluke 45 til å måle strømmen og Fluke 75 til å måle de to spenningene.}
+  \label{fig:krets_motstander}
+\end{figure}
 
 Ohms lov (\ref{eq:ohms_lov} løst for motstand $R$ kan skrives på formen $R = U/I = U I^{-1}$. Usikkerheten i R er da gitt ved
 \begin{align*}
@@ -104,25 +122,38 @@ der $R$ er den beregnede resistansen og $\Delta U$ og $\Delta I$ er måleusikker
 
 
 \subsection{Vekselspenninger med frekvensgenerator, oscilloskop og multimeter}
-De to signalene vi brukte i analysen var et sinus- og et firkantsignal. Bilder av signalene med innstillingene som ble brukt finnes i figur REF.
+Her skal vi lage etter tur to varierende spenningssignaler med en signalgenerator. Vi skal bruke et oscilloskop og et multimeter til å måle spenningen fra signalgeneratoren. De to signalene vi brukte i analysen var et sinus- og et firkantsignal. Bilder av signalene med innstillingene som ble brukt finnes i figur \ref{fig:inputsignaler}.
 
 \begin{figure}
   \includegraphics[width=\linewidth]{../sinus.pdf}
   \includegraphics[width=\linewidth]{../firkant.pdf}
-  \caption{Sinus- og firkantsignalet brukt til å måle vekselspenning med oscilloskop. Begge siganelene hadde en frekvens på 1 kHz og amplitude 1 V. Resten av innstillingene 500 $\mu$s/div, 1 MS, $\pm$ 2 V, AC, 12 bit.}
-  \label{fig:sinussignal}
+  \caption{Sinus- og firkantsignalet brukt til å måle vekselspenning med oscilloskop. Begge siganelene hadde en frekvens på 1 kHz og amplitude 1 V. Resten av innstillingene 500 $\mu$s/div, 1 MS, $\pm$ 2 V, AC, 12 bit.???}
+  \label{fig:inputsignaler}
 \end{figure}
 
 
 \subsection{Krets med frekvensavhengig respons}
-Vi har koblet opp en RC-krets som vist i figur REF. Denne vil fungere som et lavpassfilter som filtrerer bort signaler med høye frekvenser mens den lar signaler med lavere frekvenser passere CITE?. For høye frekvenser (tilnærmingen blir bedre og bedre for høyere frekvenser) vil følgende relasjon gjelde mellom forholdet mellom spenning ut og spenning inn og XXXfrekvens:
+Vi har koblet opp en RC-krets som vist i figur \ref{fig:krets_RC}. Denne vil fungere som et lavpassfilter som filtrerer bort signaler med høye frekvenser mens den lar signaler med lavere frekvenser passere CITE?. For høye frekvenser (tilnærmingen blir bedre og bedre for høyere frekvenser) vil følgende relasjon gjelde mellom forholdet mellom spenning ut og spenning inn og XXXfrekvens:
 \begin{equation}
   \log \left( \frac{V_{\text{ut}}}{V_{\text{inn}}} \right) = \log (\omega) + \log (\omega_0) \label{eq:lavpass}
 \end{equation}
 \begin{equation}
   \omega_0 = \frac{1}{RC} \label{eq:omega_0}
 \end{equation}
-Her er $\omega = 2 \pi f$, der $f$ er signalfrekvensen, mens $V_{\text{ut}}$ og $V_{\text{inn}}$ er størrelsene som er markert på figur REF. $C$ er kapasitansen til kondensatoren og $R$ er resistansen til motstanden. Likning \ref{eq:omega_0} gir at kapasitansen er gitt ved $C = \frac{1}{R \omega_0}$ som kan skrives $C = R^{-1} \omega_0^{-1}$ som gir at usikkerheten i kapasitansen kan uttrykkes
+Her er $\omega = 2 \pi f$, der $f$ er signalfrekvensen, mens $V_{\text{ut}}$ og $V_{\text{inn}}$ er størrelsene som er markert på figur \ref{fig:krets_RC}. $C$ er kapasitansen til kondensatoren og $R$ er resistansen til motstanden.
+\begin{figure}
+  \includegraphics[width=\linewidth]{krets_RC.jpg}
+  \caption{Kretstegning som viser hvordan vi kobler RC-kretsen. Motstanden R er 10 000 $\pm 150 \omega$ (usikkerheten er hentet fra datablad for motstanden).}
+  \label{fig:krets_RC}
+\end{figure}
+
+
+Likning \ref{eq:omega_0} gir at kapasitansen er gitt ved
+\begin{equation}
+  \label{eq:kapasitans}
+  C = \frac{1}{R \omega_0}.
+\end{equation}
+Dette kan skrives $C = R^{-1} \omega_0^{-1}$ som gir at usikkerheten i kapasitansen kan uttrykkes
 \begin{align*}
   \Delta C &= C \sqrt{\left( -1 \frac{\Delta R}{R} \right) ^2 + \left( -1 \frac{\Delta \omega_0}{\omega_0} \right) ^2} \\
   &= C \sqrt{\left( \frac{\Delta R}{R} \right) ^2 + \left( \frac{\Delta \omega_0}{\omega_0} \right) ^2}, \numberthis \label{eq:usikkerhet_C}
@@ -133,11 +164,11 @@ hvor $C$ er den beregnede kapasitansen og $\Delta R$ og $\Delta \omega_0$ er må
 \section{Resultater}
 
 \subsection{Multimeter måler multimeter}
-Den første delen av eksperimentet, å bruke hvert av multimetrene til å måle på det andre, ga resultatene presentert i tabell \ref{fig:tabell_multimetre}.
+Den første delen av eksperimentet, å bruke hvert av multimetrene til å måle på det andre, ga resultatene presentert i tabell \ref{table:multimetre}.
 
 \begin{table}[p]
-\label{fig:tabell_multimetre}
-\caption{Tabell som viser resultatene av å bruke de to multimeterne til å måle på hverandre. Målingene merket med * var oppgitt med én desimal mer på måleinstrumentet enn det som er oppgitt her, men det siste sifferet er sløyfet fori det var umulig å avlese da verdien svingte hele tiden.}
+\label{table:multimetre}
+\caption{Tabell som viser resultatene av å bruke de to multimeterne til å måle på hverandre. Målingene merket med * var oppgitt med én desimal mer på måleinstrumentet enn det som er oppgitt her, men det siste sifferet er sløyfet fordi det var umulig å avlese da verdien svingte hele tiden.}
 
 \begin{adjustbox}{width=\linewidth}
 \begin{tabular}{||c || c | c | c||}
@@ -160,7 +191,7 @@ Forsøk \# & Spenning, [mV] & Strøm, [mA] & Motstand  \\ \hline\hline
 \end{adjustbox}
 \end{table}
 
-Den første kretsen i figur REF svarer til Voltmeter-funksjonen. Den andre svarer til et Amperemeter, og den tredje er et Ohmmeter.
+Den første kretsen i figur \ref{fig:krets_ulike_funksjoner_multimeter} svarer til Voltmeter-funksjonen. Den andre svarer til et Amperemeter, og den tredje er et Ohmmeter.
 
 
 \subsection{Motstand, likestrøm og likespenningsmålinger med multimeter}
@@ -170,15 +201,15 @@ Ved å måle motstandene R1 og R2 direkte fikk vi disse verdiene:
   \item R2 = 0.99 $\pm$ 0.02 M$\Omega$
 \end{itemize}
 
-Ved indirekte måling av motstanden ved Ohms lov fikk vi først verdiene for strøm og spenning som er vist i tabell REF. Ved likning REF fikk vi da disse verdiene for størrelsene på motstandene:
+Ved indirekte måling av motstanden ved Ohms lov fikk vi først verdiene for strøm og spenning som er vist i tabell \ref{table:motstander}. Ved likninger \ref{eq:ohms_lov} og \ref{eq:usikkerhet_R} fikk vi da disse verdiene for størrelsene på motstandene:
 \begin{itemize}
   \item R1 = 10.37 $\pm 0.06 \Omega$
   \item R2 = 0.90 $\pm$ 0.07 M$\Omega$
 \end{itemize}
 
 \begin{table}[p]
-\label{fig:tabell_motstander}
-\caption{Tabell som viser resultatene av å bruke de to multimeterne til å måle strøm og spenning gjennom kretsene i figur REF. Målingen merket med * er avlest for tidlig i forhold til den tiden som multimeter bruker på å stabilisere seg når man måler strøm med største presisjon, og er ikke egnet til å brukes i videre beregninger.}
+\label{table:motstander}
+\caption{Tabell som viser resultatene av å bruke de to multimeterne til å måle strøm og spenning gjennom kretsene i figur \ref{fig:krets_motstander}. Målingen merket med * er avlest for tidlig i forhold til den tiden som multimeter bruker på å stabilisere seg når man måler strøm med største presisjon, og er ikke egnet til å brukes i videre beregninger.}
 
 \begin{adjustbox}{width=\linewidth}
 \begin{tabular}{||c || c | c | c||}
@@ -192,11 +223,12 @@ R2 & Spenning inn     & 17.78 $\pm$ 0.08  & 0.018 $\pm$ 0.002   \\ \hline
 \end{adjustbox}
 \end{table}
 
+
 \subsection{Vekselspenninger med frekvensgenerator, oscilloskop og multimeter}
-Resultatene fra målingene på det genererte signalet finnes i figur REF. Øvrige innstillinger for signalene finnes i REF.
+Resultatene fra målingene på det genererte signalet finnes i tabell \ref{table:AC_RMS}.
 \begin{table}[p]
-\label{fig:tabell_AC_RMS}
-\caption{Tabell som viser resultatene av å bruke oscilloskop og multimeter (Fluke 45) til å måle på sinussignal og firkantsignal laget av en signalgenerator. Øvrige innstillinger for signalene finnes i REF.}
+\label{table:AC_RMS}
+\caption{Tabell som viser resultatene av å bruke oscilloskop og multimeter (Fluke 45) til å måle på sinussignal og firkantsignal laget av en signalgenerator.}
 
 \begin{adjustbox}{width=\linewidth}
 \begin{tabular}{||c || c | c | c||}
@@ -211,13 +243,13 @@ Analytisk   & 707.1 mV    & 1 V                             & 1V            \\ \
 \end{table}
 
 \subsection{Krets med frekvensavhengig respons}
-Jeg har brukt måledataene fra filen LavpassRC\_sorted.mat. Resultatene er presentert i figur REF, og tabell REF.
+Jeg har brukt måledataene fra filen LavpassRC\_sorted.mat, målt av foreleser og veiledere. Dataene er presentert i figur \ref{fig:LavpassRC}.
 \begin{figure}
   \includegraphics[width=\linewidth]{../RC_fitlm_LavpassRC_sorted.jpg}
-  \caption{blabla}
+  \caption{Datapunktene (blått) for måling av spenning og frekvens i RC-kretsen \ref{fig:krets_RC}. Lineær regresjon (rød linje) på datapunktene som svarer til de høyeste frekvensene. Den lineære tilnærmingen (som gjelder for høye frekvenser) gir at stigningstallet for den røde linja skal bli -1. Tilpasningen her gir stigningstall -0.98879 med en standardfeil på 0.0026743.}
   \label{fig:LavpassRC}
 \end{figure}
-Ved lineær regresjon fant jeg at verdien for $log_{10}(\omega_0)$ var 2.93 med en standard error på 0.01. Med 95\% sikkerhet kan vi da si at den riktige verdien er innenfor 2.93 $\pm$ 0.02. Ved likninger REF gir dette en kapasitans på BLABLA.
+Ved lineær regresjon fant jeg at verdien for $log_{10}(\omega_0)$ var 2.93 med en standard error på 0.01 som jeg bruker videre som usikkerheten i målingen. Ved likninger \ref{eq:kapasitans} og \ref{eq:usikkerhet_C} gir dette en kapasitans på $C = 1.18 \cdot 10^{-7} \pm 4 \cdot 10^{-9}$ F, der jeg har brukt at usikkerheten i R er $\Delta R =  150 \Omega$.
 
 
 \section{Diskusjon}
