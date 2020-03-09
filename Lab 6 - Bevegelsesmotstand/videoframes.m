@@ -1,5 +1,5 @@
 % Åpne videofil og vis tidssteg for tidssteg
-vr = VideoReader('videos/video_test.mp4')
+vr = VideoReader('videos/20200309_130257.mp4')
 currAxes = axes;
 currAxes.XLim=[0 1];
 i = 0;
