@@ -1,5 +1,5 @@
 % Åpne videofil og vis tidssteg for tidssteg
-vr = VideoReader('staalkuleiolje.mp4')
+vr = VideoReader('videos/video_test.mp4')
 currAxes = axes;
 currAxes.XLim=[0 1];
 i = 0;
