@@ -13,19 +13,39 @@ U = U_nom - R.*I_anode;
 lambda_c = 2.426E-12;
 lambda_no_correction = lambda_c.*sqrt(0.511E6/2./U);
 lambda = lambda_no_correction.*relfactor(U.*1E-3)
+n = length(lambda)
 
 fprintf('\n\nlambda over D for large ring:\n')
 D = (D_outer_l + D_inner_l)./2;
-lambda_over_D = lambda./D;
-mean_value = mean(lambda_over_D)
-std_dev = std(lambda_over_D)
-relative_error = std_dev/mean_value
-correction_factor_max = max((lambda_no_correction - lambda)./D)
+lambda_over_D = lambda./D
+lambda_over_D_no_correction = lambda_no_correction./D
+phi_large = mean(lambda_over_D)
+s_phi_large = std(lambda_over_D)/sqrt(n)
+% correction_factor_max = max((lambda_no_correction - lambda)./D)
+mean_no_correction = mean(lambda_over_D_no_correction)
+std_dev_mean_no_correction = std(lambda_over_D_no_correction)/sqrt(n)
+diff_mean = abs(mean_no_correction - phi_large)
 
 fprintf('\n\nlambda over D for small ring:\n')
 D = (D_outer_s + D_inner_s)./2;
-lambda_over_D = lambda./D;
-mean_value = mean(lambda_over_D)
-std_dev = std(lambda_over_D)
-relative_error = std_dev/mean_value
-correction_factor_max = max((lambda_no_correction - lambda)./D)
+lambda_over_D = lambda./D
+lambda_over_D_no_correction = lambda_no_correction./D
+phi_small = mean(lambda_over_D)
+s_phi_small = std(lambda_over_D)/sqrt(n)
+% correction_factor_max = max((lambda_no_correction - lambda)./D)
+mean_no_correction = mean(lambda_over_D_no_correction)
+std_dev_mean_no_correction = std(lambda_over_D_no_correction)/sqrt(n)
+diff_mean = abs(mean_no_correction - phi_small)
+
+L = 140E-3; % m
+s_L = 3E-3; % m
+
+d_10 = 2*L*phi_small
+s_d_10 = d_10*sqrt((s_L/L)^2 + (s_phi_small/phi_small)^2)
+
+d_11 = 2*L*phi_large
+s_d_11 = d_11*sqrt((s_L/L)^2 + (s_phi_large/phi_large)^2)
+
+ratio = d_10/d_11
+s_ratio = ratio*sqrt((s_phi_large/phi_large)^2 + (s_phi_small/phi_small)^2)
+sqrt_3 = sqrt(3)
