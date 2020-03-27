@@ -26,7 +26,7 @@ hold on
 plot(two_theta_1, counts_1)
 plot(two_theta_2, counts_2)
 legend('n = 1', 'n = 2')
-xlabel('2 theta')
+xlabel('2 theta, [degrees]')
 ylabel('Count per 10 s')
 hold off
 
