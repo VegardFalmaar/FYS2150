@@ -30,7 +30,6 @@ fit = fitlm(x, y)
 fprintf('\n\n\n\nQuestion 7\n')
 
 mu = 55; % m^(-1)
-% mu = 74;
 I_over_I0 = 0.05;
 z = log(I_over_I0)/(-mu)
 fprintf('\nz = %.4f mm \n', z*1000)
