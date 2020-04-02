@@ -19,6 +19,8 @@ list = [396 496;
 
 figure()
 plot(I, intensity)
+title('Stråling fra klokke')
+
 hold on
 for i = 1:1:6
     start = list(i, 1);
@@ -32,5 +34,7 @@ for i = 1:1:6
     disp('We have a maximum at')
     fprintf('\n\tI = %d --> E = %.2f keV\n\n', I_max, E)
 end
-legend('Måling', 'Po-214', 'Bi-214 (4)', 'Bi-214 (3)', 'Bi-214 (2)', 'Rn-222', 'Bi-214 (1)')
+legend('Måling', '214Po alpha', '214Bi beta', '214Bi beta', '214Bi beta', '222Rn alpha', '214Bi beta')
+xlabel('Kanal, I')
+ylabel('Intensitet')
 hold off
