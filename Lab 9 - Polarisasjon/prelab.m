@@ -9,4 +9,5 @@ for i = 1:1:3
     plot(E_y(1:500))
     plot(E_z(1:500))
     legend(['E_y'; 'E_z'])
+    hold off
 end
