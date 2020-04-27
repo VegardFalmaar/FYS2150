@@ -17,8 +17,13 @@ for idx = 1:length(polarizations)
         idx = find(I == min(I));
         min_degrees = degrees(idx);
         disp('p-polarization minimum')
-        disp(mean(min_degrees))
-        disp((min_degrees(end) - min_degrees(1))/2)
+        brewster = mean(min_degrees)
+%         disp(std(min_degrees)/sqrt(length(min_degrees)))
+        s_brewster = (min_degrees(end) - min_degrees(1))/2
+        brewster = 57*pi/180;
+        s_brewster = 2*pi/180;
+        n2 = tan(brewster)
+        s_n2 = 1/(cos(brewster))^2 * s_brewster 
         plot(phi(idx).*180./pi, I(idx), 'DisplayName', 'Minimum')
     end
     title(join(['Relativ lysintensitet ' letter '-polarisert lys'], ''))
