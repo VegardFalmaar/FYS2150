@@ -1,7 +1,8 @@
 function [n] = refractive_index(lambda)
 %refractive_index 
 %     Calculate the refractive index for N-BK7 glass 
-%     for given wavelength in micrometers
+%     for given wavelength in nm
+lambda = lambda*1E-3; % Convert to micrometers
 B1 = 1.03961212;
 B2 = 0.231792344;
 B3 = 1.01046945;
