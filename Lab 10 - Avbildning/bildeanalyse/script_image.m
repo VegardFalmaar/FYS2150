@@ -1,5 +1,5 @@
 
-filepath='Users/kamilla/Documents/FYS2150/Lab 10 - Avbildning/bildeanalyse/';
+filepath = '';
 
 NUM_PICTURES = 10;
 
@@ -22,23 +22,33 @@ for i = 1:NUM_PICTURES
 %     end
 end
 
+disp('Uten siste punkt:')
+fit = fitlm(mean_values(2:NUM_PICTURES), variance(2:NUM_PICTURES))
+
+fprintf('\n\nMed siste punkt:\n')
 fit = fitlm(mean_values, variance)
 
 figure(4)
+clf
 hold on
-% plot(mean_values, variance_values)
+% plot(mean_values, variance)
 plot(fit)
-title('Lineærtilpasning for støy mot intensitet')
-xlabel('$\overline D$', 'Interpreter', 'latex')
+title('LineÃ¦rtilpasning for stÃ¸y mot intensitet')
+xlabel('$\bar D$', 'Interpreter', 'latex')
 ylabel('Var(D)', 'Interpreter', 'latex')
 hold off
 
+G = fit.Coefficients.Estimate(2)
+
 figure(5)
+clf
 hold on
-plot(mean_values, mean_values./variance)
-title('Lineærtilpasning for støy mot intensitet')
-xlabel('$\overline D$', 'Interpreter', 'latex')
-ylabel('$\overline D/Var(D)$', 'Interpreter', 'latex')
+plot(mean_values, mean_values./sqrt(variance), 'DisplayName', '$\bar D / \sqrt{ Var(D) }$')
+plot(mean_values, sqrt(mean_values./G), 'DisplayName', '$\sqrt{\bar D / G}$')
+title('Middelverdi delt pÃ¥ stÃ¸y')
+xlabel('$\bar D$', 'Interpreter', 'latex')
+ylabel('Verdi', 'Interpreter', 'latex')
+legend('Interpreter', 'latex')
 hold off
 
 
