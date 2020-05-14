@@ -8,7 +8,7 @@ fprintf('\nTheoretical B: %.2f mT\n', B_0*1E3)
 
 % Ellipsoids
 names = ["Short cylinder", "Sphere", "Tall cylinder", "Spear"];
-measurements = ["Parallel", 'Normal'];
+measurements = ["Parallel", 'Perpendicular'];
 
 a = [59.90 0.0 64.64 207       % Parallel, mm
       6.88 0.0  9.98 10.00];   % Normal, mm
@@ -21,11 +21,11 @@ B_arr = [16.8 15.3 19.6 53.3   % Parallel, mT
       
 chi = 200000; % Susceptibility of iron
 
-header_format = '\n%-15s | %-13s | %-7s | %-7s | %-7s | %-7s | %-10s \n';
-data_format = '%-15s | %-13s | %-7.3f | %-7.3f | %-7.3f | %-7.3f | %-10.3f \n';
+header_format = '\n%-15s | %-13s | %-7s | %-7s | %-7s | %-7s | \n';
+data_format = '%-15s | %-13s | %-7.3f | %-7.3f | %-7.3f | %-7.3f | \n';
 
-fprintf(header_format, 'Shape', 'Measurement', 'D', 'B_0', 'B', 'B_0/D', 'Theor. B')
-fprintf('-----------------------------------------------------------------------------------\n')
+fprintf(header_format, 'Shape', 'Measurement', 'D', 'B_0', 'B', 'B_0/D')
+fprintf('-------------------------------------------------------------------------\n')
 
 for i = 1:4
     if i == 2 % Sphere
@@ -42,7 +42,7 @@ for i = 1:4
             D = D_arr(j);
             theoretical = B_0*(1 + chi)/(1 + chi*D);
             fprintf(data_format, ...
-                names(i), measurements(j), D, B_0, B, B_0/D, theoretical)
+                names(i), measurements(j), D, B_0, B, B_0/D)
         end
     end
 end
