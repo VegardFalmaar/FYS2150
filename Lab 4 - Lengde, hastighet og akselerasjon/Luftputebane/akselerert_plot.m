@@ -1,7 +1,8 @@
 t = [1.82 1.80 2 1.93 1.95];
 
+t_mean = mean(t)
 % Standard dev of the mean
-std(t)/sqrt(length(t));
+SE_t = std(t)/sqrt(length(t))
 
 load('grunnfrekvens.mat');
 f = max(fw);
