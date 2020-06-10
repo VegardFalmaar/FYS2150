@@ -2,8 +2,8 @@
 % ved å bruke dataen fra laben
 
 % f_name = 'data/bakgrunnsstøy.mat';
-f_name = 'data/Vegard_synger.mat';
-% f_name = 'data/grunnfrekvens.mat';
+% f_name = 'data/Vegard_synger.mat';
+f_name = 'data/grunnfrekvens.mat';
 
 load(f_name);
 
