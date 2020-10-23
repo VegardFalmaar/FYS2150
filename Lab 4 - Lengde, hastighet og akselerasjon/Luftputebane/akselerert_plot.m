@@ -1,7 +1,8 @@
 t = [1.82 1.80 2 1.93 1.95];
 
+t_mean = mean(t)
 % Standard dev of the mean
-std(t)/sqrt(length(t));
+SE_t = std(t)/sqrt(length(t))
 
 load('grunnfrekvens.mat');
 f = max(fw);
@@ -24,17 +25,20 @@ c = 331.1 + 0.606*T;
 %     hold off
 % end
 
-% load('/home/vegard/Documents/FYS2150/Lab 4 - Lengde, hastighet og akselerasjon/Luftputebane/akselerert1.mat');
+load('data/akselerert1.mat');
 % load('/home/vegard/Documents/FYS2150/Lab 4 - Lengde, hastighet og akselerasjon/Luftputebane/K og co/aks2_2.mat')
-load('/home/vegard/Documents/FYS2150/Lab 4 - Lengde, hastighet og akselerasjon/Luftputebane/K og co/aks1_1.mat')
+% load('/home/vegard/Documents/FYS2150/Lab 4 - Lengde, hastighet og akselerasjon/Luftputebane/K og co/aks1_1.mat')
 % load('/home/vegard/Documents/FYS2150/Lab 4 - Lengde, hastighet og akselerasjon/Luftputebane/K og co/aks3_1.mat')
 
 v = (1 - f./fw).*c;
-stop = 15
+% stop = 15
+% stop = length(tw)
+stop = 10;
 fit = fitlm(tw(1:stop), v(1:stop))
 figure(), plot(fit);
 hold on
-xlabel('t [s]')
-ylabel('v [m/s]')
+title('Lineærtilpasning akselerasjon skråplan')
+xlabel('$t$, [s]', 'Interpreter', 'latex')
+ylabel('$v$, [m/s]', 'Interpreter', 'latex')
 hold off
 

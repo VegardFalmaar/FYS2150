@@ -1,4 +1,7 @@
 
+# VIM temporary file
+*.swp
+
 # Created by https://www.gitignore.io/api/linux,matlab,python
 # Edit at https://www.gitignore.io/?templates=linux,matlab,python
 
